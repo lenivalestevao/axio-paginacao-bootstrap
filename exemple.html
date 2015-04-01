@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Exemple</title>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="axio.paginacao.min.js"></script>
+  </head>
+  <body>
+    <div class='container'>
+        <div class="row">
+          <table class="table">
+            <thead>
+                <tr>
+                    <td>Estado</td>
+                    <td>Sigla</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Paraná</td>
+                    <td>PR</td>
+                </tr>
+                <tr>
+                    <td>Rio Grande do Sul</td>
+                    <td>RS</td>
+                </tr>
+                <tr>
+                    <td>Santa Catarina</td>
+                    <td>SC</td>
+                </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="row">
+          <ul class="pagination"></ul>
+      </div>
+    </div>
+      <script>
+        $(function(){
+            $('.table').paginacao({pagerSelector: '.pagination', perPage: 10, total: 300});
+        });
+      </script>
+  </body>
+</html>
