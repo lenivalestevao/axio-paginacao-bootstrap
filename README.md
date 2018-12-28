@@ -5,5 +5,5 @@ Modo de usar
 
 $('.table').paginacao({pagerSelector: '.pagination', perPage: 10, total: 300});
 
-Contato <a href='mailto:contato@axio.com.br'>contato@axio.com.br</a>
+Contato <a href='mailto:lenivalestevaojr@gmail.com'>lenivalestevaojr@gmail.com</a>
 Site <a href='http://www.axio.com.br' target='_blank'>www.axio.com.br</a>
