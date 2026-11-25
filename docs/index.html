@@ -61,7 +61,7 @@
     atualiza();
 
     document.getElementById('perPage').addEventListener('change', e => { pag.setPerPage(e.target.value); atualiza(); });
-    document.getElementById('add').addEventListener('click', () => { add(20); pag.refresh(); atualiza(); });
+    document.getElementById('add').addEventListener('click', () => { add(20); pag.refresh(); pag.goTo(pag.totalPages); atualiza(); });
   </script>
 </body>
 </html>
