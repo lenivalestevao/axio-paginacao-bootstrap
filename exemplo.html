@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exemplo — axio-paginacao-bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <main class="container py-4">
+    <table id="estados" class="table table-striped">
+      <thead>
+        <tr><th>Estado</th><th>Sigla</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Paraná</td><td>PR</td></tr>
+        <tr><td>Rio Grande do Sul</td><td>RS</td></tr>
+        <tr><td>Santa Catarina</td><td>SC</td></tr>
+        <tr><td>São Paulo</td><td>SP</td></tr>
+        <tr><td>Rio de Janeiro</td><td>RJ</td></tr>
+        <tr><td>Minas Gerais</td><td>MG</td></tr>
+        <tr><td>Espírito Santo</td><td>ES</td></tr>
+        <tr><td>Bahia</td><td>BA</td></tr>
+        <tr><td>Pernambuco</td><td>PE</td></tr>
+        <tr><td>Ceará</td><td>CE</td></tr>
+        <tr><td>Goiás</td><td>GO</td></tr>
+        <tr><td>Amazonas</td><td>AM</td></tr>
+      </tbody>
+    </table>
+    <nav id="paginacao"></nav>
+  </main>
+
+  <script src="axio.paginacao.min.js"></script>
+  <script>
+    new AxioPaginacao('#estados', {
+      pagerSelector: '#paginacao',
+      perPage: 5,
+      align: 'center'
+    });
+  </script>
+</body>
+</html>
