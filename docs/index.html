@@ -17,7 +17,7 @@
           <option>5</option><option selected>10</option><option>25</option>
         </select>
       </label>
-      <button id="add" class="btn btn-sm btn-outline-primary">Adicionar 20 linhas</button>
+      <button id="mais" class="btn btn-sm btn-outline-primary">Mostrar mais 20 linhas</button>
       <span id="info" class="text-secondary small ms-auto"></span>
     </div>
 
@@ -41,27 +41,35 @@
     const nomes = ['Ana','Bruno','Carla','Diego','Elisa','Felipe','Gabriela','Hugo','Isabela','João'];
     const cidades = ['Curitiba','Porto Alegre','Florianópolis','Londrina','Joinville','Maringá'];
     const tbody = document.querySelector('#tabela tbody');
-    let n = 0;
-    function add(qtd) {
-      for (let i = 0; i < qtd; i++, n++) {
-        tbody.insertAdjacentHTML('beforeend',
-          `<tr><td>${n + 1}</td><td>${nomes[n % nomes.length]} ${n + 1}</td><td>${cidades[n % cidades.length]}</td></tr>`);
-      }
+    const total = 137;
+    for (let n = 0; n < total; n++) {
+      tbody.insertAdjacentHTML('beforeend',
+        `<tr><td>${n + 1}</td><td>${nomes[n % nomes.length]} ${n + 1}</td><td>${cidades[n % cidades.length]}</td></tr>`);
     }
-    add(137);
 
     const info = document.getElementById('info');
+    const sel = document.getElementById('perPage');
     const pag = new AxioPaginacao('#tabela', {
       pagerSelector: '#paginacao',
       perPage: 10,
       align: 'center',
       onChange: atualiza
     });
-    function atualiza() { info.textContent = `Página ${pag.page} de ${pag.totalPages} · ${n} registros`; }
+    function atualiza() {
+      info.textContent = `Página ${pag.page} de ${pag.totalPages} · ${pag.perPage} por página · ${total} registros`;
+    }
     atualiza();
 
-    document.getElementById('perPage').addEventListener('change', e => { pag.setPerPage(e.target.value); atualiza(); });
-    document.getElementById('add').addEventListener('click', () => { add(20); pag.refresh(); pag.goTo(pag.totalPages); atualiza(); });
+    sel.addEventListener('change', () => { pag.setPerPage(sel.value); atualiza(); });
+
+    // mostra mais 20 linhas na tabela exposta
+    document.getElementById('mais').addEventListener('click', () => {
+      const novo = pag.perPage + 20;
+      pag.setPerPage(novo);
+      if (![...sel.options].some((o) => Number(o.value) === novo)) sel.add(new Option(novo, novo));
+      sel.value = novo;
+      atualiza();
+    });
   </script>
 </body>
 </html>
